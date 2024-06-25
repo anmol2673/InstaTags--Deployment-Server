@@ -19,7 +19,12 @@ const crypto = require('crypto');
 // Express setup
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://insta-tags-deployment-client.vercel.app', // Replace with your allowed origin or use a function for dynamic origin
+  methods: ['GET', 'POST'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type'], // Allowed headers
+  credentials: true // Allow credentials (cookies, authorization headers, etc.)
+}));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
