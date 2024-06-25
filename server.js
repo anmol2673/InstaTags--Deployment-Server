@@ -28,7 +28,7 @@ app.use(cors({
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-// AWS S3 setup
+// AWS S3 setupgit 
 const s3Client = new S3Client({
   region: process.env.REGION,
   credentials: {
@@ -306,3 +306,5 @@ connectDB().then(() => {
     console.log(`Server is running on port ${port}`);
   });
 });
+
+module.exports = app;
