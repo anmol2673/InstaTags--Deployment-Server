@@ -60,6 +60,7 @@ if (!process.env.OPENAI_API_KEY) {
 let newUrl = '';
 // Endpoint to handle image uploads
 app.post('/upload', (req, res) => {
+  console.log("inside upload ");
   upload(req, res, async (err) => {
     if (err) {
       console.error('Error uploading file:', err);
@@ -67,7 +68,10 @@ app.post('/upload', (req, res) => {
     }
 
     const file = req.file;
+    console.log(file);
     const fileName = file.originalname;
+    console.log("file name",fileName);
+
     let imageUrl = `https://${process.env.BUCKET_NAME}.s3.${process.env.REGION}.amazonaws.com/${fileName}`;
     newUrl=imageUrl;
 
@@ -76,6 +80,7 @@ app.post('/upload', (req, res) => {
     // Save image details to MongoDB
     const newImage = new Image({ name: fileName, url: imageUrl });
     await newImage.save();
+    console.log("after image saved");
 
     res.status(200).json({ message: 'File uploaded successfully', imageUrl });
   });
@@ -85,6 +90,7 @@ app.post('/upload', (req, res) => {
 
 // Endpoint to generate image description
 app.post('/api/generate-description', async (req, res) => {
+  console.log("api generate description");
   const { model } = req.body; // Ensure you're getting imageUrl from request body
   console.log(model);
   console.log('Image URL:', newUrl);
@@ -207,6 +213,7 @@ app.post('/forget-password', async (req, res) => {
 
 // Verify OTP and reset password endpoint
 app.post('/reset-password', async (req, res) => {
+
   const { email, otp, newPassword } = req.body;
 
   try {

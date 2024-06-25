@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://mayankdubey2673:1SOAwv7YHahEmRkx@rageopenai.7ruzbru.mongodb.net/instaTagsDb?retryWrites=true&w=majority&appName=Rageopenai', {
+        await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
