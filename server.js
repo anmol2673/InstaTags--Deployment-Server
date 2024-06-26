@@ -74,7 +74,7 @@ app.post('/upload', (req, res) => {
 
     const file = req.file;
     console.log(file);
-    const fileName = file.originalname.replace(' ',"_");
+    const fileName = file.originalname.replace(" ","-");
     console.log("file name",fileName);
 
     let imageUrl = `https://${process.env.BUCKET_NAME}.s3.${process.env.REGION}.amazonaws.com/${fileName}`;
