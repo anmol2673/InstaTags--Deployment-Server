@@ -20,7 +20,7 @@ const crypto = require('crypto');
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'https://insta-tags-deployment-client.vercel.app', // Replace with your allowed origin or use a function for dynamic origin
+  origin: 'https://insta-tags-deployment-client-new.vercel.app', // Replace with your allowed origin or use a function for dynamic origin
   methods: ['GET', 'POST'], // Allowed HTTP methods
   // Allowed headers
   credentials: true // Allow credentials (cookies, authorization headers, etc.)
