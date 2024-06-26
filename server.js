@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors({
   origin: 'https://insta-tags-deployment-client.vercel.app/login', // Replace with your allowed origin or use a function for dynamic origin
   methods: ['GET', 'POST'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type'], // Allowed headers
+  // Allowed headers
   credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
 app.use(bodyParser.json({ limit: '50mb' }));
