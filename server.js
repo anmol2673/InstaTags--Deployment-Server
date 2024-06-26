@@ -96,6 +96,7 @@ app.post('/upload', (req, res) => {
 // Endpoint to generate image description
 app.post('/api/generate-description', async (req, res) => {
   console.log("api generate description");
+  console.log(req.body);
   const { model } = req.body; // Ensure you're getting imageUrl from request body
   console.log(model);
   console.log('Image URL:', newUrl);
