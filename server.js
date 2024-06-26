@@ -299,7 +299,7 @@ app.post('/api/register', async (req, res) => {
 
   
 // Define a GET endpoint that returns a "Hello" message
-app.get('/api/hello', (req, res) => {
+app.get('/', (req, res) => {
   res.json({ message: 'Hello' });
 });
 
