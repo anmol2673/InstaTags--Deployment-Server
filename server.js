@@ -74,7 +74,7 @@ app.post('/upload', (req, res) => {
 
     const file = req.file;
     console.log(file);
-    const fileName = file.originalname.replace(" ","-");
+    const fileName = file.originalname;
     console.log("file name",fileName);
 
     let imageUrl = `https://${process.env.BUCKET_NAME}.s3.${process.env.REGION}.amazonaws.com/${fileName}`;
@@ -111,7 +111,7 @@ app.post('/api/generate-description', async (req, res) => {
             {
               type: "image_url",
               image_url: {
-                "url": newUrl,
+                "url": encodeURI(newUrl),
               },
             },
           ],
