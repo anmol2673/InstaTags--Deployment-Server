@@ -25,7 +25,7 @@ app.use(cors({
    origin: '*', // Allow this origin
   methods: ['GET', 'POST'], // Allowed HTTP methods
   // Allowed headers
-  credentials: true // Allow credentials (cookies, authorization headers, etc.)
+  //credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
